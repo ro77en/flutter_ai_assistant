@@ -21,8 +21,15 @@ dev_dependencies:
     sdk: flutter
 
   # Encourages Good Practices
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
+
+  # For Changing App Icon
+  icons_launcher: ^2.1.7
 
 flutter:
   # Enables Material Design
   uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
