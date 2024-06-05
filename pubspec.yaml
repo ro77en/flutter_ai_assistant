@@ -1,0 +1,28 @@
+name: ai_assistant
+description: "An AI Assistant (Chatbot, Image Generator & Language Translator) App based on ChatGPT developed by Lucas Maia Dantas"
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+# Dependencies
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # iOS Styled Icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Encourages Good Practices
+  flutter_lints: ^3.0.0
+
+flutter:
+  # Enables Material Design
+  uses-material-design: true
