@@ -26,30 +26,31 @@ class _HomeScreenState extends State<HomeScreen> {
     mq = MediaQuery.sizeOf(context);
 
     return Scaffold(
-        appBar: AppBar(
-          elevation: 1,
-          centerTitle: true,
-          foregroundColor: Colors.white,
-          title: const Text(
-            appName,
-            style: TextStyle(
-                color: Colors.blue, fontSize: 20, fontWeight: FontWeight.w500),
-          ),
-          actions: [
-            IconButton(
-                padding: const EdgeInsets.only(right: 20),
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.brightness_4_rounded,
-                  color: Colors.blue,
-                  size: 26,
-                ))
-          ],
+      appBar: AppBar(
+        elevation: 1,
+        centerTitle: true,
+        foregroundColor: Colors.white,
+        title: const Text(
+          appName,
+          style: TextStyle(
+              color: Colors.blue, fontSize: 20, fontWeight: FontWeight.w500),
         ),
-        body: ListView(
-          padding: EdgeInsets.symmetric(
-              horizontal: mq.width * .02, vertical: mq.height * .015),
-          children: HomeType.values.map((e) => HomeCard(homeType: e)).toList(),
-        ));
+        actions: [
+          IconButton(
+              padding: const EdgeInsets.only(right: 20),
+              onPressed: () {},
+              icon: const Icon(
+                Icons.brightness_4_rounded,
+                color: Colors.blue,
+                size: 26,
+              ))
+        ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.symmetric(
+            horizontal: mq.width * .02, vertical: mq.height * .015),
+        children: HomeType.values.map((e) => HomeCard(homeType: e)).toList(),
+      ),
+    );
   }
 }
