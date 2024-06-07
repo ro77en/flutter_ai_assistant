@@ -2,6 +2,7 @@ import 'package:ai_assistant/helper/global.dart';
 import 'package:ai_assistant/model/onboard.dart';
 import 'package:ai_assistant/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -97,8 +98,9 @@ class OnboardingScreen extends StatelessWidget {
                     foregroundColor: Colors.white),
                 onPressed: () {
                   if (isLast) {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (_) => const HomeScreen()));
+                    Get.off(() => const HomeScreen());
+                    // Navigator.of(context).pushReplacement(
+                    //     MaterialPageRoute(builder: (_) => const HomeScreen()));
                   } else {
                     pc.nextPage(
                         duration: const Duration(milliseconds: 600),
