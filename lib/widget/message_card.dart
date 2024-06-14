@@ -37,7 +37,7 @@ class MessageCard extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     vertical: mq.height * .01, horizontal: mq.width * .02),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black54),
+                    border: Border.all(color: Colors.grey.shade400),
                     borderRadius: const BorderRadius.only(
                         topLeft: r, topRight: r, bottomRight: r)),
                 child: Text(message.msg),
@@ -58,7 +58,7 @@ class MessageCard extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     vertical: mq.height * .01, horizontal: mq.width * .02),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black54),
+                    border: Border.all(color: Colors.blue),
                     borderRadius: const BorderRadius.only(
                         topLeft: r, topRight: r, bottomLeft: r)),
                 child: Text(message.msg),
