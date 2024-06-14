@@ -1,4 +1,6 @@
 import 'package:ai_assistant/controller/chat_controller.dart';
+import 'package:ai_assistant/helper/global.dart';
+import 'package:ai_assistant/widget/message_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -67,7 +69,9 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
       // body
       body: Obx(
         () => ListView(
-          children: _c.list.map((e) => Text(e.msg)).toList(),
+          padding:
+              EdgeInsets.only(top: mq.height * .02, bottom: mq.height * .01),
+          children: _c.list.map((e) => MessageCard(message: e)).toList(),
         ),
       ),
     );
