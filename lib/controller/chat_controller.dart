@@ -1,3 +1,4 @@
+import 'package:ai_assistant/api/apis.dart';
 import 'package:ai_assistant/model/message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,10 +18,11 @@ class ChatController extends GetxController {
 
   void askForName() {
     list.add(Message(
-        msg: 'Hello! How should i call you?', msgType: MessageType.bot));
+        msg: 'Hello, welcome to AI Assistant Chatbot! How should i call you?',
+        msgType: MessageType.bot));
   }
 
-  void askQuestion() {
+  Future<void> askQuestion() async {
     if (textC.text.trim().isNotEmpty) {
       if (isAskingName.value) {
         userName.value = textC.text.trim();
@@ -32,10 +34,14 @@ class ChatController extends GetxController {
       } else {
         // user
         list.add(Message(msg: textC.text, msgType: MessageType.user));
+        list.add(
+            Message(msg: 'Generating response...', msgType: MessageType.bot));
+
+        final response = await APIs.talkWithGemini(textC.text);
 
         // ai bot
-        list.add(
-            Message(msg: 'I received your message', msgType: MessageType.bot));
+        list.removeLast();
+        list.add(Message(msg: response, msgType: MessageType.bot));
       }
       textC.text = '';
     }
