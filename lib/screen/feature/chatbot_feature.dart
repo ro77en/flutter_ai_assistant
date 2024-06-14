@@ -1,4 +1,6 @@
+import 'package:ai_assistant/controller/chat_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChatbotFeature extends StatefulWidget {
   const ChatbotFeature({super.key});
@@ -8,12 +10,16 @@ class ChatbotFeature extends StatefulWidget {
 }
 
 class _ChatbotFeatureState extends State<ChatbotFeature> {
+  final _c = ChatController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chat with AI Assistant'),
       ),
+
+      // send msg field & btn
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -22,6 +28,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
             // text input field
             Expanded(
               child: TextFormField(
+                controller: _c.textC,
                 textAlign: TextAlign.center,
                 onTapOutside: (e) => FocusScope.of(context).unfocus(),
                 decoration: const InputDecoration(
@@ -45,7 +52,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
               radius: 24,
               backgroundColor: Colors.blue,
               child: IconButton(
-                onPressed: () {},
+                onPressed: _c.askQuestion,
                 icon: const Icon(
                   Icons.rocket_launch_rounded,
                   color: Colors.white,
@@ -56,8 +63,12 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
           ],
         ),
       ),
-      body: ListView(
-        children: [],
+
+      // body
+      body: Obx(
+        () => ListView(
+          children: _c.list.map((e) => Text(e.msg)).toList(),
+        ),
       ),
     );
   }
