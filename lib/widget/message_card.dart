@@ -1,6 +1,8 @@
+import 'package:ai_assistant/controller/chat_controller.dart';
 import 'package:ai_assistant/helper/global.dart';
 import 'package:ai_assistant/model/message.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MessageCard extends StatelessWidget {
   final Message message;
@@ -10,6 +12,7 @@ class MessageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const r = Radius.circular(15);
+    final chatController = Get.find<ChatController>();
 
     return message.msgType == MessageType.bot
 
@@ -60,13 +63,28 @@ class MessageCard extends StatelessWidget {
                         topLeft: r, topRight: r, bottomLeft: r)),
                 child: Text(message.msg),
               ),
-              const CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  size: 32,
-                ),
+              Column(
+                children: [
+                  const CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.person,
+                      size: 32,
+                    ),
+                  ),
+                  Obx(() {
+                    return chatController.userName.isNotEmpty
+                        ? Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: Text(
+                              chatController.userName.value,
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                          )
+                        : const SizedBox.shrink();
+                  })
+                ],
               ),
               const SizedBox(width: 6),
             ],

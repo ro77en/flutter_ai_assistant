@@ -12,7 +12,7 @@ class ChatbotFeature extends StatefulWidget {
 }
 
 class _ChatbotFeatureState extends State<ChatbotFeature> {
-  final _c = ChatController();
+  final ChatController _c = Get.put(ChatController());
 
   @override
   Widget build(BuildContext context) {
