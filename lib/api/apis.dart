@@ -1,30 +1,16 @@
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:ai_assistant/helper/api_key.dart';
-import 'package:http/http.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 
 class APIs {
-  // get answer from chat gpt
-  static Future<void> getAnswer(String question) async {
-    final res = await post(
-        Uri.parse('https://api.openai.com/v1/chat/completions'),
-        headers: {
-          HttpHeaders.contentTypeHeader: 'application/json',
-          HttpHeaders.authorizationHeader: 'Bearer $apiKey'
-        },
-        body: {
-          jsonEncode({
-            "model": "gpt-3.5-turbo",
-            "max_tokens": 2000,
-            "temperature": 0,
-            "messages": {"role": "user", "content": question},
-          })
-        });
+  static Future<void> talkWithGemini() async {
+    final model = GenerativeModel(model: 'gemini-1.0-pro', apiKey: apiKey);
 
-    final data = jsonDecode(res.body);
+    final msg = 'Hello';
 
-    log('res: ${data['choices'][0]['message']['content']}');
+    final content = Content.text(msg);
+
+    final response = await model.generateContent([content]);
+
+    print('response from gemini ai: ${response.text}');
   }
 }

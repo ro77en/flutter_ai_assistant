@@ -16,6 +16,10 @@ dependencies:
   # iOS Styled Icons
   cupertino_icons: ^1.0.6
 
+  # Google Gemini
+  google_generative_ai: ^0.4.3
+  intl:
+
   # For using Lottie Animations
   lottie: ^3.1.2
 
