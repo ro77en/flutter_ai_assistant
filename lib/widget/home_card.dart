@@ -14,64 +14,67 @@ class HomeCard extends StatelessWidget {
     Animate.restartOnHotReload = true;
 
     return Card(
-      color: Colors.blue.withOpacity(.2),
-      elevation: 0,
-      margin: EdgeInsets.only(bottom: mq.height * .02),
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: homeType.leftAlign
-          ? Row(
-              children: [
-                // lottie
-                Container(
-                  width: mq.width * .35,
-                  padding: homeType.padding,
-                  child: Lottie.asset(
-                    'assets/lottie/${homeType.lottie}',
-                  ),
-                ),
+            color: Colors.blue.withOpacity(.2),
+            elevation: 0,
+            margin: EdgeInsets.only(bottom: mq.height * .02),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: InkWell(
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              onTap: homeType.onTap,
+              child: homeType.leftAlign
+                  ? Row(
+                      children: [
+                        // lottie
+                        Container(
+                          width: mq.width * .35,
+                          padding: homeType.padding,
+                          child: Lottie.asset(
+                            'assets/lottie/${homeType.lottie}',
+                          ),
+                        ),
 
-                const Spacer(),
+                        const Spacer(),
 
-                // title
-                Text(
-                  homeType.title,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: .5),
-                ),
-                const Spacer(
-                  flex: 5,
-                ),
-              ],
-            )
-          : Row(
-              children: [
-                // lottie
-                const Spacer(
-                  flex: 2,
-                ),
+                        // title
+                        Text(
+                          homeType.title,
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: .5),
+                        ),
+                        const Spacer(
+                          flex: 5,
+                        ),
+                      ],
+                    )
+                  : Row(
+                      children: [
+                        // lottie
+                        const Spacer(
+                          flex: 2,
+                        ),
 
-                // title
-                Text(
-                  homeType.title,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: .5),
-                ),
-                const Spacer(),
-                Container(
-                  width: mq.width * .35,
-                  padding: homeType.padding,
-                  child: Lottie.asset(
-                    'assets/lottie/${homeType.lottie}',
-                  ),
-                ),
-              ],
-            ),
-    )
+                        // title
+                        Text(
+                          homeType.title,
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: .5),
+                        ),
+                        const Spacer(),
+                        Container(
+                          width: mq.width * .35,
+                          padding: homeType.padding,
+                          child: Lottie.asset(
+                            'assets/lottie/${homeType.lottie}',
+                          ),
+                        ),
+                      ],
+                    ),
+            ))
         .animate()
         .fade(duration: NumDurationExtensions(1).seconds, curve: Curves.easeIn);
   }

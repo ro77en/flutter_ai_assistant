@@ -26,7 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // Initializing device size
     mq = MediaQuery.sizeOf(context);
 
-    APIs.talkWithGemini();
+    // Sample api call
+    // APIs.talkWithGemini();
 
     return Scaffold(
       appBar: AppBar(
