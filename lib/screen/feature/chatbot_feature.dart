@@ -31,9 +31,10 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
             Expanded(
               child: TextFormField(
                 controller: _c.textC,
-                textAlign: TextAlign.center,
                 onTapOutside: (e) => FocusScope.of(context).unfocus(),
                 decoration: const InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
                   isDense: true,
                   hintText: 'Ask me anything you want...',
                   hintStyle: TextStyle(fontSize: 14),
@@ -69,6 +70,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
       // body
       body: Obx(
         () => ListView(
+          physics: const BouncingScrollPhysics(),
           padding:
               EdgeInsets.only(top: mq.height * .02, bottom: mq.height * .01),
           children: _c.list.map((e) => MessageCard(message: e)).toList(),
