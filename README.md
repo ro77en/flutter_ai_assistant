@@ -48,6 +48,8 @@ AI Assistant is an AI-powered application featuring a chatbot, image generator, 
    ```bash
    flutter run
    ```
+4. **IMPORTANT**:
+   Inside the `helper` folder, create a file named api_key.dart. In this file you must declare a const apiKey, containing your Gemini API Key.
 
 ### Directory Structure
 
