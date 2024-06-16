@@ -94,9 +94,9 @@ ai_assistant/
 
 ## Dev Dependencies
 
-**flutter_test**: Testing framework for Flutter.
-**flutter_lints**: Linting rules for Flutter.
-**icons_launcher**: Utility for changing app icons.
+- **flutter_test**: Testing framework for Flutter.
+- **flutter_lints**: Linting rules for Flutter.
+- **icons_launcher**: Utility for changing app icons.
 
 ## Usage
 
