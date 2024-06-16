@@ -2,6 +2,15 @@
 
 AI Assistant is an AI-powered application featuring a chatbot, image generator, and language translator. The app leverages Google's Gemini for chatbot capabilities, providing a sophisticated and interactive user experience.
 
+**This project was developed for UniBH - Usability, Web Development, Mobile and Games [2024/1]**
+
+### Group Members
+
+- Ana Beatriz de Souza - 1221132200
+- Ana Luiza da Silva Ferreira - 1221132792
+- Lucas Maia Dantas - 1221138366
+- Matheus Benchetrit - 1221120711
+
 **Figma Wireframes**: https://www.figma.com/design/dlZT060YThLMGbbQTnpIG8/AI_Assistant?node-id=0-1&t=YCEl0KAmG7deYt5n-1
 
 ## Features
@@ -19,6 +28,8 @@ AI Assistant is an AI-powered application featuring a chatbot, image generator, 
 - Dart SDK
 
 ### Installation
+
+**IMPORTANT**: in the `lib/helper` folder, you must create a file named `api_key.dart`. This file must contain a const `apiKey` that stores your Gemini API Key (String).
 
 1. **Clone the repository**:
 
