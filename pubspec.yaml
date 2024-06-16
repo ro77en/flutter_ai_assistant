@@ -20,6 +20,12 @@ dependencies:
   google_generative_ai: ^0.4.3
   intl:
 
+  # Animated Texts
+  animated_text_kit: ^4.2.2
+
+  # Store Data
+  shared_preferences: ^2.0.15
+
   # For using Lottie Animations
   lottie: ^3.1.2
 
