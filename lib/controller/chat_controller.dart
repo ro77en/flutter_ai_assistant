@@ -2,6 +2,7 @@ import 'package:ai_assistant/api/apis.dart';
 import 'package:ai_assistant/model/message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChatController extends GetxController {
   final textC = TextEditingController();
@@ -45,5 +46,11 @@ class ChatController extends GetxController {
       }
       textC.text = '';
     }
+  }
+
+  Future<void> saveChatHistory() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> chatHistory = list.map((msg) => msg.toJson()).toList();
+    await prefs.setStringList('chatHistory', chatHistory);
   }
 }
